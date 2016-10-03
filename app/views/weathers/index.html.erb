@@ -1,0 +1,20 @@
+
+<h1>Current city is : <%= @title %></h1>
+<h1>Current temperature in your city is : <%= @temperature %></h1>
+
+<h1>Your 5 day forecast is: </h1>
+<% @forecast[0..4].each do |forecast_hash| %>
+  <li>Day: <%= forecast_hash["day"] %></li>
+  <li>Date: <%= forecast_hash["date"] %></li>
+  <li>Day high: <%= forecast_hash["high"] %></li>
+  <li>Day low: <%= forecast_hash["low"] %></li>
+  <li>Looks like it's gonna be: <%= forecast_hash["high"] %></li>
+  <p> </p>
+<% end %>
+
+<h2>Please enter city and state you would like the weather for:</h2>
+<%= form_tag('/blah', method: :get) do %>
+  <%= text_field_tag(:city) %>
+  <%= text_field_tag(:state) %>
+  <%= submit_tag("Show your weather!") %>
+<% end %>

@@ -1,0 +1,2 @@
+module WeatherApiDemosHelper
+end
